@@ -1,3 +1,13 @@
+# The stack
+## The client
+TBD
+
+## The Server
+Node.js
+
+## The web server
+express
+
 server -> endpoints
 
 endpoint -> controller, db

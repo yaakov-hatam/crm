@@ -1,11 +1,10 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-
 
 // configurations
 const PORT = 14700;
 const app = express();
-app.use(bodyParser.json());
+
+app.use(express.json());
 
 // my modules imports
 const contactDb = require('./db')('Contact', ['id', 'name', 'phone', 'companyId']);
