@@ -1,5 +1,6 @@
+const database = [];
+
 function dbFactory(entityName, entityKeys) {
-    const database = [];
     entityName = 'Quote';
 
     function read(callback) {
