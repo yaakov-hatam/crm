@@ -7,9 +7,9 @@ const app = express();
 app.use(express.json());
 
 // my modules imports
-const contactDb = require('./contact.db')('Contact');
-const companyDb = require('./company.db')('Company');
-const quoteDb = require('./quote')('Quote');
+const contactDb = require('./db/contact.db')();
+const companyDb = require('./db/company.db')();
+const quoteDb = require('./db/quote.db')();
 
 const contact = require('./crud')({
     db: contactDb

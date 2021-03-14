@@ -1,4 +1,5 @@
 function dbFactory(entityName, entityKeys) {
+    entityName = 'Company';
     const database = [];
 
     function read(callback) {
