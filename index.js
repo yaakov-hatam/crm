@@ -1,4 +1,5 @@
 const express = require('express');
+const db = require('./db');
 
 // configurations
 const PORT = 14700;
@@ -7,22 +8,12 @@ const app = express();
 app.use(express.json());
 
 // my modules imports
-const contactDb = require('./db')('Contact', ['id', 'name', 'phone', 'companyId']);
-const companyDb = require('./db')('Company');
-const quoteDb = require('./db')('Quote');
+const contactDb = db('Contact');
+const companyDb = db('Company');
+const quoteDb = db('Quote');
 
 const contact = require('./crud')({
-    db: contactDb,
-    /*middlewares: {
-        post: function (req, res, next) {
-            const data = req.body;
-            if (companyDb.filter(c => c.id == data.companyId).length > 0) {
-                next()
-            } else {
-                res.status(400).send();
-            }
-        }
-    }*/
+    db: contactDb
 });
 const company = require('./crud')({
     db: companyDb
@@ -30,8 +21,6 @@ const company = require('./crud')({
 const quote = require('./crud')({
     db: quoteDb
 });
-
-
 
 app.use('/contact', contact);
 app.use('/company', company);
