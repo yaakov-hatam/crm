@@ -1,5 +1,4 @@
 const express = require('express');
-const db = require('./db');
 
 // configurations
 const PORT = 14700;
@@ -8,9 +7,9 @@ const app = express();
 app.use(express.json());
 
 // my modules imports
-const contactDb = db('Contact');
-const companyDb = db('Company');
-const quoteDb = db('Quote');
+const contactDb = require('./contact.db')('Contact');
+const companyDb = require('./company.db')('Company');
+const quoteDb = require('./quote')('Quote');
 
 const contact = require('./crud')({
     db: contactDb
